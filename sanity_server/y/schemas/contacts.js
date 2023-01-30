@@ -1,5 +1,3 @@
-
-
 export default {
   name: 'contact',
   title: 'Contact',
@@ -7,7 +5,7 @@ export default {
   fields: [
     {
       name: 'number',
-      type: 'Number',
+      type: 'number',
       title: 'number',
     },
     {

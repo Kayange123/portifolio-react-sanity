@@ -6,6 +6,7 @@ import {
   Testimonials,
   Works,
 } from "./containers";
+import "./app.scss";
 import { Navbar } from "./components/index";
 const App = () => {
   return (

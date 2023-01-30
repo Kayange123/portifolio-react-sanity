@@ -1,0 +1,135 @@
+.app__navbar{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(225,255,255, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: fixed;
+    z-index: 2;
+}
+.app__navbar-logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+
+    img{
+        width: 90px;
+        height: 20px;
+    }
+
+}
+
+.app__navbar-links{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li{
+        margin: 0 1rem;
+        cursor: pointer;
+        flex-direction: column;
+
+       div{
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: transparent;
+        margin-top: 5px;
+       }
+       a{
+        text-decoration: none;
+        text-transform: uppercase;
+        flex-direction: column;
+        color: var(--gray-color);
+        font-weight: 500;
+        transition: all 0.5s ease-in-out;
+
+        & :hover{
+            color: var(--secondary-color);
+        }
+       }
+    }
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
+.app__navbar-menu{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    svg{
+        height: 70%;
+        width: 70%;
+        color: var(--white-color);
+        
+    }
+    div{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        padding: 1rem;
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        background-color: var(--white-color);
+        
+        svg{
+            height: 35px;
+            width: 35px;
+            color: var(--secondary-color);
+            margin: 0.5rem 1rem;           
+            align-items: flex-end;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            li{
+               margin: 0.5rem 1rem; 
+               
+               display: flex;
+               align-items: center;
+               
+            width: 100%;
+            height: 40px;
+
+               a{
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 1rem;
+                color: var(--gray-color);
+               }
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            display: none;
+        }
+        
+    }
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
+}

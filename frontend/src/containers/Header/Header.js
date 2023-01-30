@@ -1,9 +1,53 @@
-import React from 'react'
+import { motion } from "framer-motion";
+import AppWrapp from "../../components/AppWrapper/AppWrap.js";
+import image from "../../assets/index";
+import React from "react";
+import "./index.scss";
 
+const scaleVariant = {
+  whileInView: {
+    scale: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+};
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <div className="app__header app__flex">
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.6 }}
+        className="app__header-info"
+      >
+        <div className="app__header-badge">
+          <div className="badge-cmp app__flex">
+            <div style={{ marginLeft: "20px" }}>
+              <p className="p-text">Hello I'm</p>
+              <h1 className="head-text">Mr kayoung</h1>
+            </div>
+            <div className="tag-cmp app__flex">
+              <p className="p-text">Web developer</p>
+              <p className="head-text">UI/UX Designer</p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.6 }}
+        className="app__header-img"
+      >
+        <img src={image.profile} alt="profile_bg" />
+      </motion.div>
+      <motion.div
+        variants={scaleVariant}
+        whileInView={scaleVariant.whileInView}
+      ></motion.div>
+    </div>
+  );
+};
 
-export default Header
+export default AppWrapp(Header, "home");
