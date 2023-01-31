@@ -14,6 +14,7 @@ const scaleVariant = {
     },
   },
 };
+const techList = [image.react, image.mu5, image.git];
 const Header = () => {
   return (
     <div className="app__header app__flex">
@@ -41,11 +42,25 @@ const Header = () => {
         className="app__header-img"
       >
         <img src={image.profile} alt="profile_bg" />
+        <motion.img
+          whileInView={{ scale: [0, 1] }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="overlay-circle"
+          src={image.circle}
+          alt="circle-svg"
+        />
       </motion.div>
       <motion.div
         variants={scaleVariant}
         whileInView={scaleVariant.whileInView}
-      ></motion.div>
+        className="app__header-circle"
+      >
+        {techList.map((item, index) => (
+          <div className="circle" key={item + index}>
+            <img src={item} alt="circles" />
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 };

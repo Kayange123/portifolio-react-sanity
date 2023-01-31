@@ -61,16 +61,18 @@
 }
 .app__navbar-menu{
     position: relative;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     display: flex;
+    cursor: pointer;
+    margin: 0 10px;
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-color);
     svg{
-        height: 70%;
-        width: 70%;
+        height: 90%;
+        width: 90%;
         color: var(--white-color);
         
     }
@@ -81,19 +83,25 @@
         right: 0;
         z-index: 5;
         padding: 1rem;
-        width: 80%;
+        width: 60%;
         height: 100vh;
         display: flex;
         justify-content: flex-end;
         flex-direction: column;
+        background: url('../../assets/assets/bgWhite.png');
         background-color: var(--white-color);
+        background-size: cover;
+
         
         svg{
             height: 35px;
             width: 35px;
             color: var(--secondary-color);
-            margin: 0.5rem 1rem;           
+           margin: 0.5rem 2rem;           
             align-items: flex-end;
+            
+            display: block;
+            width: 100%;
         }
         ul{
             list-style: none;

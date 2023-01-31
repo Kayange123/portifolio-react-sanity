@@ -6,11 +6,11 @@ export default {
     {
       name: 'number',
       type: 'number',
-      title: 'number',
+      title: 'telephone',
     },
     {
       name: 'email',
-      type: 'string',
+      type: 'email',
       title: 'Email',
     },
   ],

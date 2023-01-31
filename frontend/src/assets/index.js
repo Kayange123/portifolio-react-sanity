@@ -19,9 +19,13 @@ import css from "./assets/css.png";
 import typescript from "./assets/typescript.png";
 import skype from "./assets/skype.png";
 import python from "./assets/python.png";
+import bgWhite from "./assets/bgWhite.png";
+import circle from "./assets/circle.svg";
 
 export default {
   profile,
+  circle,
+  bgWhite,
   about,
   figma,
   flutter,

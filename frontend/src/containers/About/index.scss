@@ -26,6 +26,18 @@
         border-radius: 15px;
         object-fit: cover;
     }
+    h3{
+        
+        margin: 1rem auto;
+        
+    }
+    p{
+        font-size: medium;
+        margin: 0 auto;
+        
+        font-family: monospace, sans-serif;
+        
+    }
     @media screen and (min-width: 2000px) {
         width: 380px;
         margin: 2rem, 4rem;

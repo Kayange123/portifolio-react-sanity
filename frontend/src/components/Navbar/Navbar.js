@@ -4,14 +4,14 @@ import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import image from "../../assets/index";
 
-const navList = ["home", "About", "Footer", "Header", "Skills", "Contact"];
+const navList = ["home", "About", "work", "Skills", "Contact"];
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={image.redux} alt="Home-img" />
+        <img height={"200px"} width="200px" src={image.redux} alt="Home-img" />
       </div>
       <ul className="app__navbar-links">
         {navList.map((item) => (
