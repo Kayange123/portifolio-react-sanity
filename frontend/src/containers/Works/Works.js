@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import image from "../../assets/index";
-import { client } from "../../sanityClient/client";
-import { AppWrap } from "../../components/AppWrapper";
+import { client, urlFor } from "../../sanityClient/client";
+import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 import "./index.scss";
+
 const array = [
   {
     title: "Modern UI/UX",
@@ -31,7 +32,7 @@ const Works = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState(array);
-  const [filterWorks, setFilterWorks] = useState(array);
+  const [filterWorks, setFilterWorks] = useState([]);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
@@ -48,9 +49,8 @@ const Works = () => {
   useEffect(() => {
     const query = '*[_type=="work"]';
     client.fetch(query).then((data) => {
-      // setFilterWorks(data);
-      //setWorks(data);
-      console.log(data);
+      setFilterWorks(data);
+      setWorks(data);
     });
   }, []);
   return (
@@ -79,7 +79,7 @@ const Works = () => {
         {filterWorks.map((work, index) => (
           <div className="app__work-item app__flex" key={index + work}>
             <div className="app__work-img app__flex">
-              <img src={work.imageURL} alt={work.name} />
+              <img src={urlFor(work.imageURL.asset._ref)} alt={work.name} />
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
@@ -125,4 +125,4 @@ const Works = () => {
   );
 };
 
-export default AppWrap(Works, "work");
+export default AppWrap(MotionWrap(Works, "app__work"), "work", "app__whitebg");

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { urlFor, client } from "../../sanityClient/client";
 import { motion } from "framer-motion";
-import { AppWrap } from "../../components/AppWrapper";
+import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 import "./index.scss";
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -16,7 +16,7 @@ const About = () => {
   }, []);
 
   return (
-    <div id="About">
+    <div id="About" className="app__about">
       <h2 className="head-text">
         I know that <span> Good Design</span> means<span> Good Business</span>
       </h2>
@@ -39,4 +39,4 @@ const About = () => {
   );
 };
 
-export default AppWrap(About , "about");
+export default AppWrap(MotionWrap(About, "app__about"), "about");

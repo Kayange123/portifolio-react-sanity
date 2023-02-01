@@ -31,7 +31,12 @@ export default {
     {
       name: 'tags',
       title: 'Tags',
-      type: 'slug',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
     },
   ],
 }

@@ -21,6 +21,7 @@ import skype from "./assets/skype.png";
 import python from "./assets/python.png";
 import bgWhite from "./assets/bgWhite.png";
 import circle from "./assets/circle.svg";
+import user from "./assets/profile.png";
 
 export default {
   profile,
@@ -29,6 +30,7 @@ export default {
   about,
   figma,
   flutter,
+  user,
   git,
   react,
   redux,

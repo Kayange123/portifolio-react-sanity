@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&family=Poppins:wght@100;200;300;400;600&display=swap');
+
 :root{
     --primary-color : #edf2f8;
     --secondary-color : #313bac;
@@ -13,8 +16,9 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    font-family: 'Poppins', 'Montserrat';
 }
-.background__bg{
+.app__darkbg{
 
     /* ff 3.6+ */
     background:-moz-radial-gradient(circle at 12% 22%, rgba(10, 17, 80, 1) 0%, rgba(13, 13, 43, 1) 50%, rgba(0, 0, 6, 0.99) 100%);
@@ -31,4 +35,7 @@
     /* global 92%+ browsers support */
     background:radial-gradient(circle at 12% 22%, rgba(10, 17, 80, 1) 0%, rgba(13, 13, 43, 1) 50%, rgba(0, 0, 6, 0.99) 100%);
 
+}
+.app__whitebg{
+    background: #fff;
 }

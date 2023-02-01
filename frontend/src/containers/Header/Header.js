@@ -3,6 +3,7 @@ import AppWrapp from "../../components/AppWrapper/AppWrap.js";
 import image from "../../assets/index";
 import React from "react";
 import "./index.scss";
+import MotionWrap from "../../components/AppWrapper/MotionWrap.js";
 
 const scaleVariant = {
   whileInView: {
@@ -41,7 +42,7 @@ const Header = () => {
         transition={{ duration: 0.6 }}
         className="app__header-img"
       >
-        <img src={image.profile} alt="profile_bg" />
+        <img src={image.user} alt="profile_bg" />
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -65,4 +66,8 @@ const Header = () => {
   );
 };
 
-export default AppWrapp(Header, "home");
+export default AppWrapp(
+  MotionWrap(Header, "app__header"),
+  "home",
+  "app__darkbg"
+);
