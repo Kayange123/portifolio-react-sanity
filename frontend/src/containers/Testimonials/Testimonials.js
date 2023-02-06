@@ -23,7 +23,6 @@ const Testimonials = () => {
       .fetch(brandsQuery)
       .then((data) => {
         setBrands(data);
-        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -33,13 +32,15 @@ const Testimonials = () => {
   const currentTest = testimonials[currentIndex];
   return (
     <>
-      {testimonials.length && (
+      {testimonials.length>0 && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img
-              src={urlFor(currentTest.imageurl.asset._ref)}
-              alt={currentTest.name}
-            />
+            <div className="app__testimonial-img">
+              <img
+                src={urlFor(currentTest.imageurl.asset._ref)}
+                alt={currentTest.name}
+              />
+            </div>
             <div className="app__testimonial-content">
               <p className="p-text">{currentTest.feedback}</p>
               <div>
@@ -91,4 +92,8 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default AppWrap(
+  MotionWrap(Testimonials, "app__testimonial"),
+  "testimonial",
+  "app__whitebg"
+);

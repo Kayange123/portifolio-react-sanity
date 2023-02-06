@@ -16,7 +16,8 @@ const scaleVariant = {
   },
 };
 const techList = [image.react, image.mu5, image.git];
-const Header = () => {
+const Header = ({ user }) => {
+  //console.log(user);
   return (
     <div className="app__header app__flex">
       <motion.div
@@ -28,7 +29,7 @@ const Header = () => {
           <div className="badge-cmp app__flex">
             <div style={{ marginLeft: "20px" }}>
               <p className="p-text">Hello I'm</p>
-              <h1 className="head-text">Mr kayoung</h1>
+              <h1 className="head-text">Kayoung</h1>
             </div>
             <div className="tag-cmp app__flex">
               <p className="p-text">Web developer</p>

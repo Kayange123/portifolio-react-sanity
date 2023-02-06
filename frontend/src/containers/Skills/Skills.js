@@ -7,33 +7,33 @@ import { motion } from "framer-motion";
 import "./index.scss";
 import "react-tooltip/dist/react-tooltip.css";
 
-// const exps = [
-//   {
-//     year: "2020",
-//     works: [
-//       { name: "Engineer", company: "Airtel" },
-//       { name: "Developer", company: "TiGo" },
-//     ],
-//   },
-//   {
-//     year: "2022",
-//     works: [
-//       { name: "Front end", company: "Alumnium" },
-//       { name: "Software Engineer", company: "Meta" },
-//     ],
-//   },
-// ];
+const exps = [
+  {
+    year: "2020",
+    works: [
+      { name: "Engineer", company: "Airtel" },
+      { name: "Developer", company: "TiGo" },
+    ],
+  },
+  {
+    year: "2022",
+    works: [
+      { name: "Front end", company: "Alumnium" },
+      { name: "Software Engineer", company: "Meta" },
+    ],
+  },
+];
 
-// const array = [
-//   { name: "Git", icon: image.git, bgColor: "" },
-//   { name: "Node Js", icon: image.node, bgColor: "" },
-//   { name: "Material UI", icon: image.mu5, bgColor: "" },
-//   { name: "Git", icon: image.flutter, bgColor: "" },
-//   { name: "Node Js", icon: image.css, bgColor: "" },
-//   { name: "Material UI", icon: image.html, bgColor: "" },
-//   { name: "Material UI", icon: image.python, bgColor: "" },
-//   { name: "Material UI", icon: image.profile, bgColor: "" },
-// ];
+const array = [
+  { name: "Git", icon: image.git, bgColor: "" },
+  { name: "Node Js", icon: image.node, bgColor: "" },
+  { name: "Material UI", icon: image.mu5, bgColor: "" },
+  { name: "Git", icon: image.flutter, bgColor: "" },
+  { name: "Node Js", icon: image.css, bgColor: "" },
+  { name: "Material UI", icon: image.html, bgColor: "" },
+  { name: "Material UI", icon: image.python, bgColor: "" },
+  { name: "Material UI", icon: image.profile, bgColor: "" },
+];
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -54,7 +54,7 @@ const Skills = () => {
       .then((data) => {
         setExperiences(data);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
   }, []);
   return (
     <div className="app__skills">
