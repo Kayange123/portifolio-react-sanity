@@ -15,9 +15,9 @@ const scaleVariant = {
     },
   },
 };
-const techList = [image.react, image.mu5, image.git];
+const techList = [image.react, image.redux, image.git];
 const Header = ({ user }) => {
-  //console.log(user);
+  console.log(user);
   return (
     <div className="app__header app__flex">
       <motion.div
@@ -27,14 +27,12 @@ const Header = ({ user }) => {
       >
         <div className="app__header-badge">
           <div className="badge-cmp app__flex">
-            <div style={{ marginLeft: "20px" }}>
-              <p className="p-text">Hello I'm</p>
-              <h1 className="head-text">Kayoung</h1>
-            </div>
-            <div className="tag-cmp app__flex">
-              <p className="p-text">Web developer</p>
-              <p className="head-text">UI/UX Designer</p>
-            </div>
+            <p className="head-text">Hello, I'm</p>
+            <h1 className="head-text">Kayange</h1>
+          </div>
+          <div className="tag-cmp app__flex">
+            <h4 className="head-text">Web developer</h4>
+            <h4 className="head-text">UI/UX Designer</h4>
           </div>
         </div>
       </motion.div>
@@ -67,8 +65,4 @@ const Header = ({ user }) => {
   );
 };
 
-export default AppWrapp(
-  MotionWrap(Header, "app__header"),
-  "home",
-  "app__darkbg"
-);
+export default AppWrapp(MotionWrap(Header, "app__header"), "Home");

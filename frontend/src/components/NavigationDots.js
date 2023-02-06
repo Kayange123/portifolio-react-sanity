@@ -1,6 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
-const navList = ["home", "About", "Footer", "Header", "Skills", "Contact"];
+const navList = [
+  "Home",
+  "About",
+  "Work",
+  "Skills",
+  "Testimonial",
+  "Contact",
+  "Footer",
+];
 const NavigationDots = ({ active }) => {
   return (
     <div className="app__navigation">

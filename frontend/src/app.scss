@@ -31,4 +31,45 @@
     flex-direction: column;
     padding: 4rem 2rem;
 }
+.app__social{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    filter: blur(.6px);
+    margin: 2px;
+    div{
+        width: 20px;
+        height: 20px;
+        margin: 2px 1px;
+        svg{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &:hover{
+            background-color: gray;
+            border-radius: 50%;
+            justify-items: center;
+            cursor: pointer;
+            
+
+        }
+    }
+}
+
+.app__navigation{
+    //background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.app__navigation-dot{
+    width: 10px;
+    height: 10px;
+    margin: .5rem 3px;
+    border-radius: 50%;
+    background: black;
+   background-color: var(--primary-color);
+
+}
 

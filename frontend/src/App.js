@@ -10,6 +10,7 @@ import { client } from "./sanityClient/client";
 import "./app.scss";
 import { Navbar } from "./components/index";
 import { useEffect, useState } from "react";
+import Contact from "./containers/Contact/Contact";
 const App = () => {
   const [user, setUser] = useState([]);
 
@@ -34,6 +35,7 @@ const App = () => {
       <Works />
       <Skills />
       <Testimonials />
+      <Contact />
       <Footer />
     </div>
   );

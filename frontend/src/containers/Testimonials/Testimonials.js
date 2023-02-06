@@ -32,7 +32,7 @@ const Testimonials = () => {
   const currentTest = testimonials[currentIndex];
   return (
     <>
-      {testimonials.length>0 && (
+      {testimonials.length > 0 && (
         <>
           <div className="app__testimonial-item app__flex">
             <div className="app__testimonial-img">
@@ -94,6 +94,6 @@ const Testimonials = () => {
 
 export default AppWrap(
   MotionWrap(Testimonials, "app__testimonial"),
-  "testimonial",
+  "Testimonial",
   "app__whitebg"
 );

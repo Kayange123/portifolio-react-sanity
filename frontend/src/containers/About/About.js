@@ -16,7 +16,7 @@ const About = () => {
   }, []);
 
   return (
-    <div id="About" className="app__about">
+    <div className="app__about">
       <h2 className="head-text">
         I know that <span> Good Design</span> means<span> Good Business</span>
       </h2>
@@ -39,4 +39,4 @@ const About = () => {
   );
 };
 
-export default AppWrap(MotionWrap(About, "app__about"), "about");
+export default AppWrap(MotionWrap(About, "app__about"), "About");

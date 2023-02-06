@@ -2,7 +2,7 @@ import React from "react";
 import { SocialMedia, NavigationDots } from "../index";
 
 const year = new Date().getFullYear();
-
+const name = "kayangeInc";
 const AppWrap = (Component, idName, classNames) =>
   function HOC() {
     return (
@@ -11,7 +11,7 @@ const AppWrap = (Component, idName, classNames) =>
         <div className="app__wrapper app__flex">
           <Component />
           <div className="copyright">
-            <p className="p-text">{`@${year} `}</p>
+            <p className="p-text">{`@${year} ${name}`}</p>
             <p className="p-text">All rights reserved</p>
           </div>
         </div>
