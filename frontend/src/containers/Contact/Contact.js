@@ -12,7 +12,7 @@ const Contact = () => {
 
   useEffect(() => {
     client.fetch(query).then((data) => {
-      console.log(data);
+      //console.log(data);
     });
   }, []);
   const notify = (response) => {

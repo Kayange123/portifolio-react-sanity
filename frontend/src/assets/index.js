@@ -1,5 +1,4 @@
 /* eslint-disable import/no-anonymous-default-export */
-import jsCertificate01 from "./assets/jsCertificate01.jpg";
 import about01 from "./assets/about01.png";
 import about02 from "./assets/about02.png";
 import about03 from "./assets/about03.png";
@@ -26,7 +25,6 @@ export default {
   circle,
   bgWhite,
   figma,
-  jsCertificate01,
   flutter,
   user,
   git,

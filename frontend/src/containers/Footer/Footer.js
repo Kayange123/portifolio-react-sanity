@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 import { client, urlFor } from "../../sanityClient/client";
 import Drawer from "./Drawer";
-import image from "../../assets/index";
 import { motion } from "framer-motion";
 import "./index.scss";
-import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 
 const Footer = () => {
   const [selectedCard, setSelectedCard] = useState(null);
