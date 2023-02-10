@@ -1,6 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import profile from "./images/profile.jpg";
-import about from "./images/about.jpg";
+import jsCertificate01 from "./assets/jsCertificate01.jpg";
 import about01 from "./assets/about01.png";
 import about02 from "./assets/about02.png";
 import about03 from "./assets/about03.png";
@@ -24,11 +23,10 @@ import circle from "./assets/circle.svg";
 import user from "./assets/profile.png";
 
 export default {
-  profile,
   circle,
   bgWhite,
-  about,
   figma,
+  jsCertificate01,
   flutter,
   user,
   git,

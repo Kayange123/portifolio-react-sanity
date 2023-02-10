@@ -5,12 +5,13 @@ import {
   Skills,
   Testimonials,
   Works,
+  Contact,
 } from "./containers";
 import { client } from "./sanityClient/client";
 import "./app.scss";
 import { Navbar } from "./components/index";
 import { useEffect, useState } from "react";
-import Contact from "./containers/Contact/Contact";
+import { getClient } from "./utils/getClient";
 const App = () => {
   const [user, setUser] = useState([]);
 
@@ -21,7 +22,7 @@ const App = () => {
         .fetch(query)
         .then((data) => {
           setUser(data);
-          console.log(data);
+          //console.log(data);
         })
         .catch((err) => console.log(err));
     }

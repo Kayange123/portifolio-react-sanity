@@ -69,15 +69,19 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-
+    margin: 2rem 0;
+    .app__skills-exp-in{
+        display: flex;
+        flex-direction: row;
+    }
 }
 .app__skills-exp-item{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    margin: 1rem 0;
+    
 }
 .app__skills-exp-works{
     flex: 1;

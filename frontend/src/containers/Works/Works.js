@@ -56,7 +56,7 @@ const Works = () => {
   return (
     <div className="app__work">
       <h2 className="head-text">
-        My ideal <span> portfolio</span>
+        My ideal  <span>  portfolio</span>
       </h2>
       <div className="app__work-filter">
         {listWorks.map((work, index) => (

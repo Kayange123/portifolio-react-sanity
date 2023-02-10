@@ -18,7 +18,8 @@ const About = () => {
   return (
     <div className="app__about">
       <h2 className="head-text">
-        I know that <span> Good Design</span> means<span> Good Business</span>
+        I know that <span> Good Design</span>
+        <br /> means<span> Good Business</span>
       </h2>
       <motion.div whileInView={{ x: [300, 0] }} className="app__profiles">
         {abouts.map((about, index) => (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../../assets/vendor/aos/aos.css";
 import { motion } from "framer-motion";
 import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
 import { client, urlFor } from "../../sanityClient/client";
@@ -82,7 +83,7 @@ const Testimonials = () => {
           <motion.div
             key={brand._id}
             whileInView={{ opacity: [0, 1], scale: [0, 1] }}
-            transition={{ duration: 0.5, type: "tween", staggerChildren: 0.5 }}
+            transition={{ duration: 0.5, type: "tween", staggerChildren: 1 }}
           >
             <img src={urlFor(brand.imageurl.asset._ref)} alt={brand.name} />
           </motion.div>

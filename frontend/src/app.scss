@@ -68,8 +68,22 @@
     height: 10px;
     margin: .5rem 3px;
     border-radius: 50%;
-    background: black;
+    border : 2px solid rgba(0,0,0,0.5);
    background-color: var(--primary-color);
 
 }
 
+.copyright{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: .8rem;
+    margin: 0 0 0 auto;
+
+    p{
+        color: #000;
+        font-style: italic;
+        font-weight: 900;
+        line-height: 1rem;
+    }
+}
