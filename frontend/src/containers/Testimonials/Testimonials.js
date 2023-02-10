@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "../../assets/vendor/aos/aos.css";
+import Carousel from "react-elastic-carousel";
 import { motion } from "framer-motion";
 import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
 import { client, urlFor } from "../../sanityClient/client";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import "./index.scss";
 
 const Testimonials = () => {
   const [brands, setBrands] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const query = '*[_type == "testimonial"]';
@@ -27,56 +25,32 @@ const Testimonials = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  const handleClick = (index) => {
-    setCurrentIndex(index);
-  };
-  const currentTest = testimonials[currentIndex];
+
   return (
     <>
       {testimonials.length > 0 && (
-        <>
-          <div className="app__testimonial-item app__flex">
-            <div className="app__testimonial-img">
-              <img
-                src={urlFor(currentTest.imageurl.asset._ref)}
-                alt={currentTest.name}
-              />
-            </div>
-            <div className="app__testimonial-content">
-              <p className="p-text">{currentTest.feedback}</p>
-              <div>
-                <h4 className="bold-text">{currentTest.name}</h4>
-                <h5 className="p-text"> {currentTest.company}</h5>
+        <Carousel>
+          {testimonials.map((test) => (
+            <div key={test._id} className="app__testimonial-item app__flex">
+              <div className="app__testimonial-img">
+                <img
+                  loading="lazy"
+                  src={urlFor(test.imageurl.asset._ref)}
+                  alt={test.name}
+                />
               </div>
-              <div className="app__testimonial-btns app__flex">
-                <div
-                  className="app__flex"
-                  onClick={() =>
-                    handleClick(
-                      currentIndex === 0
-                        ? testimonials.length - 1
-                        : currentIndex - 1
-                    )
-                  }
-                >
-                  <HiChevronLeft />
+              <div className="app__testimonial-content">
+                <div>
+                  <p>{test.feedback}</p>
                 </div>
-                <div
-                  className="app__flex"
-                  onClick={() =>
-                    handleClick(
-                      currentIndex === testimonials.length - 1
-                        ? 0
-                        : currentIndex + 1
-                    )
-                  }
-                >
-                  <HiChevronRight />
+                <div>
+                  <h4 className="bold-text">{test.name}</h4>
+                  <h5 className="p-text"> {test.company}</h5>
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          ))}
+        </Carousel>
       )}
       <div className="app__testimonial-brands app__flex">
         {brands.map((brand) => (

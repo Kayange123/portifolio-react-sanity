@@ -13,5 +13,10 @@ export default {
       type: 'email',
       title: 'Email',
     },
+    {
+      name: 'location',
+      type: 'email',
+      title: 'Location',
+    },
   ],
 }

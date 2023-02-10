@@ -15,9 +15,9 @@ const scaleVariant = {
     },
   },
 };
+
 const techList = [image.react, image.redux, image.git];
 const Header = ({ user }) => {
-  console.log(user);
   return (
     <div id="Home" className="app__header app__flex">
       <motion.div
@@ -25,16 +25,16 @@ const Header = ({ user }) => {
         transition={{ duration: 0.6 }}
         className="app__header-info"
       >
-        <div className="app__header-badge">
-          <div className="badge-cmp app__flex">
-            <p className="head-text">Hello, I'm</p>
-            <h1 className="head-text">Kayange</h1>
+        <motion.div className="app__header-badge">
+          <div className="badge-cmp">
+            <p>Hello, I'm</p>
+            <h1>ayubu Kayange</h1>
           </div>
-          <div className="tag-cmp app__flex">
-            <h4 className="head-text">Web developer</h4>
-            <h4 className="head-text">UI/UX Designer</h4>
+          <div className="tag-cmp">
+            <h4 className="head-text">Software Engineer</h4>
+            <h4 className="head-text">Full stack Developer</h4>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}

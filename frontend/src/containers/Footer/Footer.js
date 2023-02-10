@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { client, urlFor } from "../../sanityClient/client";
 import Drawer from "./Drawer";
 import image from "../../assets/index";
 import { motion } from "framer-motion";
@@ -7,6 +8,14 @@ import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 
 const Footer = () => {
   const [selectedCard, setSelectedCard] = useState(null);
+  const [certs, setCerts] = useState([]);
+  const query = '*[_type == "certificate"]';
+
+  useEffect(() => {
+    client.fetch(query).then((data) => {
+      setCerts(data);
+    });
+  }, []);
   return (
     <>
       <section className="app__footer app__flex">
@@ -22,9 +31,15 @@ const Footer = () => {
                 }}
                 className="img-wrap"
                 key={cert + index}
-                onClick={() => setSelectedCard(image.jsCertificate01)}
+                onClick={() =>
+                  setSelectedCard(urlFor(cert.certImage.asset._ref))
+                }
               >
-                <img src={image.jsCertificate01} alt="certificate" />
+                <img
+                  src={urlFor(cert.certImage.asset._ref)}
+                  alt={cert.course}
+                  loading="lazy"
+                />
               </motion.div>
             ))}
         </div>
@@ -41,5 +56,3 @@ export default AppWrap(
   "Footer",
   "app__darkbg"
 );
-
-const certs = [1, 2, 3, 4, 5, 6, 7, 8, 9];

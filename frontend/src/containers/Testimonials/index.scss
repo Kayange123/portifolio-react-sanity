@@ -2,35 +2,30 @@
     flex: 1;
     flex-direction: column;
     width: 100%;
-
+    height: 100%;
 }
 .app__testimonial-item{
     max-width: 80%;
-    min-width: 70%;
-    min-height: 350px;
-    background-color: var(--gray-color);
+    max-height: 50%;
     display: flex;
-    flex: 1;
+    flex: 0.65;
     flex-direction: column;
     padding: 2rem;
-    margin: 0 auto;
     border-radius: 15px;
     transition: all 0.3s ease-in-out;
     box-shadow: rgba($color: #000000, $alpha: 0.2);
 
     .app__testimonial-img{
-        width: 80%;
-        height: 60%;
-        justify-content: flex-start;
-        margin: 0 0 2rem 0;
-
+        width: 200px;
+        height: 200px;
+        justify-content: center;
+      
        
-        
-        
         img{
             width: 100%;
             height: 100%;
-            
+            object-fit: cover;
+            border-radius: 50%;
            
         }
     }
