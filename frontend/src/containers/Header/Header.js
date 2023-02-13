@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import AppWrapp from "../../components/AppWrapper/AppWrap.js";
 import image from "../../assets/index";
 import React from "react";
-import "./index.scss";
 import MotionWrap from "../../components/AppWrapper/MotionWrap.js";
+import "./index.scss";
 
 const scaleVariant = {
   whileInView: {
