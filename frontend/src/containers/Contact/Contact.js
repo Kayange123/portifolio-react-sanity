@@ -1,38 +1,65 @@
-import React, { useEffect, useState } from "react";
-import { client, urlFor } from "../../sanityClient/client";
+import React, { useState, useEffect } from "react";
+import { images } from "../../constants";
+import { client } from "../../sanityClient/client";
+import toast from "react-hot-toast";
+import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
 import Form from "./Form";
-import { ToastContainer, toast } from "react-toastify";
-import { motion } from "framer-motion";
-import { AppWrap } from "../../components/AppWrapper";
 import "./index.scss";
-import "react-toastify/dist/ReactToastify.css";
-const Contact = () => {
-  const [contacts, setContacts] = useState([]);
-  const query = '*[_type== "contact"]';
 
-  useEffect(() => {
-    client.fetch(query).then((data) => {
-      //console.log(data);
-    });
-  }, []);
-  const notify = (response) => {
-    toast(response);
+const Contact = () => {
+  const [isFormSent, setIsFormSent] = useState(false);
+  const [contact, setContact] = useState();
+
+  const notify = (data) => {
+    toast(data);
   };
+  useEffect(() => {
+    const query = '*[_type == "contact"]';
+    client.fetch(query).then(
+      (data) => {
+        setContact(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, []);
+
   return (
-    <div className="app__contact">
-      <div>
-        <h3>Contact Me</h3>
-        <p>Get a minute to say just a "Hi", I am gonna appreciate it</p>
-      </div>
-      <motion.div animate={{ opacity: [0, 0.5, 1], scale: [0, 1] }}>
-        <div className="app__contact-container">
-          <h1 className="app__contact-title"></h1>
+    <>
+      <h2 className="head-text">Reach Me Out Now</h2>
+
+      {contact?.length > 0 && (
+        <div className="app__footer-cards">
+          {contact[0]?.name !== "" && (
+            <div className="app__footer-card ">
+              <img src={images.email} alt="email" />
+              <a href={`mailto:${contact[0]?.email}`} className="p-text">
+                Email Me Now
+              </a>
+            </div>
+          )}
+          <div className="app__footer-card">
+            <img src={images.mobile} alt="phone" />
+            <a href={`tel:+${contact[0]?.number}`} className="p-text">
+              Call Me Now
+            </a>
+          </div>
         </div>
-      </motion.div>
-      <Form notify={notify} />
-      <ToastContainer />
-    </div>
+      )}
+      {!isFormSent ? (
+        <Form notify={notify} setIsFormSent={setIsFormSent} />
+      ) : (
+        <div>
+          <h3 className="head-text">Thank you for getting in touch!</h3>
+        </div>
+      )}
+    </>
   );
 };
 
-export default AppWrap(Contact, "Contact");
+export default AppWrap(
+  MotionWrap(Contact, "app__footer"),
+  "Contact",
+  "app__whitebg"
+);

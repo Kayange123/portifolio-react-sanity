@@ -1,39 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { AppWrap } from "../../components/AppWrapper";
-import image from "../../assets/index";
 import { client, urlFor } from "../../sanityClient/client";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { motion } from "framer-motion";
-import "./index.scss";
 import "react-tooltip/dist/react-tooltip.css";
-
-const exps = [
-  {
-    year: "2020",
-    works: [
-      { name: "Engineer", company: "Airtel" },
-      { name: "Developer", company: "TiGo" },
-    ],
-  },
-  {
-    year: "2022",
-    works: [
-      { name: "Front end", company: "Alumnium" },
-      { name: "Software Engineer", company: "Meta" },
-    ],
-  },
-];
-
-const array = [
-  { name: "Git", icon: image.git, bgColor: "" },
-  { name: "Node Js", icon: image.node, bgColor: "" },
-  { name: "Material UI", icon: image.mu5, bgColor: "" },
-  { name: "Git", icon: image.flutter, bgColor: "" },
-  { name: "Node Js", icon: image.css, bgColor: "" },
-  { name: "Material UI", icon: image.html, bgColor: "" },
-  { name: "Material UI", icon: image.python, bgColor: "" },
-  { name: "Material UI", icon: image.profile, bgColor: "" },
-];
+import "./index.scss";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -43,22 +14,18 @@ const Skills = () => {
     const query = '*[_type== "skill"]';
     const queryExp = '*[_type=="experience"]';
 
-    client
-      .fetch(query)
-      .then((data) => {
-        setSkills(data);
-      })
-      .catch((err) => console.log(err));
-    client
-      .fetch(queryExp)
-      .then((data) => {
-        setExperiences(data);
-      })
-      .catch((err) => console.log(err));
+    client.fetch(query).then((data) => {
+      setSkills(data);
+    });
+    client.fetch(queryExp).then((data) => {
+      setExperiences(data);
+    });
   }, []);
   return (
     <div className="app__skills">
-      <h2 className="head-text"> Skills & Experience</h2>
+      <h2 className="head-text">
+        Skills <span>&</span> Experience
+      </h2>
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
           {skills.map((skill, index) => (

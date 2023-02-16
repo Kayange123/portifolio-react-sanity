@@ -1,65 +1,91 @@
 import React, { useState, useEffect } from "react";
-import Carousel from "react-elastic-carousel";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
-import { client, urlFor } from "../../sanityClient/client";
+import { urlFor, client } from "../../sanityClient/client";
 import "./index.scss";
 
-const Testimonials = () => {
-  const [brands, setBrands] = useState([]);
+const Testimonial = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
+  const [brands, setBrands] = useState([]);
+
+  const handleClick = (index) => {
+    setCurrentIndex(index);
+  };
 
   useEffect(() => {
     const query = '*[_type == "testimonial"]';
-    const brandsQuery = '*[_type=="brand"]';
-    client
-      .fetch(query)
-      .then((data) => {
-        setTestimonials(data);
-      })
-      .catch((err) => console.log(err));
-    client
-      .fetch(brandsQuery)
-      .then((data) => {
-        setBrands(data);
-      })
-      .catch((err) => console.log(err));
+    const brandsQuery = '*[_type == "brand"]';
+
+    client.fetch(query).then((data) => {
+      setTestimonials(data);
+    });
+
+    client.fetch(brandsQuery).then((data) => {
+      setBrands(data);
+    });
   }, []);
+  const test = testimonials[currentIndex];
 
   return (
     <>
-      {testimonials.length > 0 && (
-        <Carousel>
-          {testimonials.map((test) => (
-            <div key={test._id} className="app__testimonial-item app__flex">
-              <div className="app__testimonial-img">
-                <img
-                  loading="lazy"
-                  src={urlFor(test.imageurl.asset._ref)}
-                  alt={test.name}
-                />
+      {testimonials?.length && (
+        <>
+          <div className="app__testimonial-item app__flex">
+            <img src={urlFor(test.imageurl?.asset?._ref)} alt={test.name} />
+            <div className="app__testimonial-content">
+              <div className="feedback">
+                <RiDoubleQuotesL />
+                <blockquote className="p-text">{test.feedback}</blockquote>
+                <RiDoubleQuotesR />
               </div>
-              <div className="app__testimonial-content">
-                <div>
-                  <p>{test.feedback}</p>
-                </div>
-                <div>
-                  <h4 className="bold-text">{test.name}</h4>
-                  <h5 className="p-text"> {test.company}</h5>
-                </div>
+              <div>
+                <h4 className="bold-text">{test.name}</h4>
+                <h5 className="p-text">{test.company}</h5>
               </div>
             </div>
-          ))}
-        </Carousel>
+          </div>
+
+          <div className="app__testimonial-btns app__flex">
+            <div
+              className="app__flex"
+              onClick={() =>
+                handleClick(
+                  currentIndex === 0
+                    ? testimonials.length - 1
+                    : currentIndex - 1
+                )
+              }
+            >
+              <HiChevronLeft />
+            </div>
+
+            <div
+              className="app__flex"
+              onClick={() =>
+                handleClick(
+                  currentIndex === testimonials.length - 1
+                    ? 0
+                    : currentIndex + 1
+                )
+              }
+            >
+              <HiChevronRight />
+            </div>
+          </div>
+        </>
       )}
+
       <div className="app__testimonial-brands app__flex">
-        {brands.map((brand) => (
+        {brands?.map((brand) => (
           <motion.div
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.5, type: "tween" }}
             key={brand._id}
-            whileInView={{ opacity: [0, 1], scale: [0, 1] }}
-            transition={{ duration: 0.5, type: "tween", staggerChildren: 1 }}
           >
-            <img src={urlFor(brand.imageurl.asset._ref)} alt={brand.name} />
+            <img src={urlFor(brand?.imageurl?.asset._ref)} alt={brand.name} />
           </motion.div>
         ))}
       </div>
@@ -68,7 +94,7 @@ const Testimonials = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Testimonials, "app__testimonial"),
+  MotionWrap(Testimonial, "app__testimonial"),
   "Testimonial",
-  "app__whitebg"
+  "app__primarybg"
 );

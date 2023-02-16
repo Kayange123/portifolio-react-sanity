@@ -4,19 +4,18 @@
   background-size: cover;
   background-repeat: repeat;
   background-position: top center;
-  .app__wrapper {
-    padding: 0;
-  }
+  width: 80%;
+ 
   .copyright {
     display: none;
   }
 }
 .app__header {
-  flex: .75;
-  width: 100%;
+  flex: 1;
+  width: 80%;
   height: 100%;
   flex-direction: row;
-  padding: 2rem  0;
+  padding: 1rem  0;
 
   @media screen and (max-width: 1200px) {
     flex-direction: column;
@@ -24,8 +23,8 @@
   @media screen and (min-width: 2000px) {
     padding-top: 8rem;
   }
-  @media screen and (max-width: 450px) {
-    padding: 6rem 1rem 2rem;
+  @media screen and (max-width: 768px) {
+    padding: 1rem 0 ;
   }
 }
 .app__header-info {
@@ -37,8 +36,7 @@
   height: 100%;
   width: 100%;
   @media screen and (max-width: 2000px) {
-    width: 100%;
-    margin-right: 0;
+    max-width: 100%;
   }
 }
 .app__header-badge {
@@ -53,14 +51,22 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     max-width: 100%;
-    p{
-
-    }
+    
   }
   .tag-cmp {
     width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    h4{
+
+      color: var(--secondary-color);
+    }
+
     
 
   }
@@ -73,18 +79,31 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  margin-top: 2em;
   margin-left: 1rem;
 
-  
-  @media screen and (max-width:1200px) {
+  @media screen and (max-width:1300px) {
       flex-direction: row;
-     
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      
+      div{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        
+      }
+      
   }
+  
   div {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background: var(--white-color);
+
+    
     img {
       width: 100%;
       height: 100%;
@@ -98,7 +117,7 @@
   div:nth-child(2){
     width: 250px;
     height: 250px;
-    //margin-left: 5rem;
+    
   }
   div:nth-child(3){
     width: 150px;
@@ -113,7 +132,7 @@
   }
 }
 .app__header-img {
-  flex: 1;
+  flex: 0.65;
   height: 100%;
   display: flex;
   justify-content: flex-end;

@@ -7,6 +7,7 @@ import experience from './experience'
 import brands from './brands'
 import user from './user'
 import certificates from './certificates'
+import socialMedia from './socialMedia'
 
 export const schemaTypes = [
   contacts,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   work,
   skills,
   experience,
+  socialMedia,
 ]
