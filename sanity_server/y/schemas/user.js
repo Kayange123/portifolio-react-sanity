@@ -18,5 +18,10 @@ export default {
       title: 'Logo',
       type: 'image',
     },
+    {
+      name: 'banner',
+      title: 'Banner',
+      type: 'image',
+    },
   ],
 }

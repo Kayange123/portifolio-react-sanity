@@ -20,8 +20,12 @@ import python from "./assets/python.png";
 import bgWhite from "./assets/bgWhite.png";
 import circle from "./assets/circle.svg";
 import user from "./assets/profile.png";
+import programming from "./assets/programming.svg";
+import feeds from "./assets/feeds.svg";
 
 export default {
+  programming,
+  feeds,
   circle,
   bgWhite,
   figma,

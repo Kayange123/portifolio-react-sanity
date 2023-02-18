@@ -9,7 +9,8 @@ const Form = ({ notify, setIsFormSent }) => {
   const [formData, setFormData] = useState(data);
   const { user_name, user_email, message } = formData;
   const form = useRef();
-  const isInValid = formData === data;
+  const isInValid = user_email === "" || user_name === "" || message === "";
+
   const clear = () => {
     setFormData(data);
     setIsFormSent(true);
@@ -24,10 +25,10 @@ const Form = ({ notify, setIsFormSent }) => {
       .then(
         () => {
           clear();
-          notify("Email sent successfully");
+          notify("Email was sent successfully");
         },
         () => {
-          notify("Something went wrong");
+          notify("Email was not Sent, Something went wrong!");
         }
       )
       .catch((err) => console.log(err))

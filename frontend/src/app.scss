@@ -16,6 +16,12 @@
     min-height: 100vh;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+
+    @media screen and (max-width: 1200) {
+      width: 100%;
+      overflow-wrap: break-word;
+    }
   }
   
   .app__flex {
@@ -26,12 +32,13 @@
   
   .app__wrapper {
     flex: 1;
-    width: 80%;
+    width: 100%;
     flex-direction: column;
     padding: 4rem 2rem;
   
     @media screen and (max-width: 450px) {
-      padding: 4rem 1rem 2rem;
+      padding: 4rem 1rem ;
+      width: 100%;
     }
   }
   

@@ -14,3 +14,6 @@ export const Works = React.lazy(() => import("../../containers/Works/Works"));
 export const Testimonials = React.lazy(() =>
   import("../../containers/Testimonials/Testimonials")
 );
+export const Contact = React.lazy(() =>
+  import("../../containers/Contact/Contact")
+);

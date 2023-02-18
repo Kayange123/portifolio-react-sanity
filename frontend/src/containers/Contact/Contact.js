@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import { images } from "../../constants";
 import { client } from "../../sanityClient/client";
-import toast from "react-hot-toast";
 import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
 import Form from "./Form";
 import "./index.scss";

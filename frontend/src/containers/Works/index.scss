@@ -1,25 +1,31 @@
 .app__works {
-    flex: 1;
+  flex: 1;
+   display: flex;
     max-width: 100%;
     flex-direction: column;
+    align-items: center;
   }
   
   .app__work-filter {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    margin:  0 2rem;
+    
   
-    margin: 4rem 0 2rem;
-  
+    @media screen and (max-width: 1200px) {
+      margin: 1rem 1rem;
+      border-radius: 0.85rem;
+      
+    }
     .app__work-filter-item {
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       background-color: #fff;
       color: #000;
       font-weight: 800;
-  
       cursor: pointer;
       transition: all 0.3s ease;
       margin: 0.5rem;
@@ -30,8 +36,16 @@
       }
   
       @media screen and (min-width: 2000px) {
-        padding: 1rem 2rem;
+        padding: 1rem 1rem;
         border-radius: 0.85rem;
+       
+      }
+      @media screen and (max-width: 1200px) {
+        padding: 1rem 1rem;
+        border-radius: 0.85rem;
+        font-size: 10px;
+        width: fit-content;
+        height: 20px;
       }
     }
   
@@ -42,8 +56,10 @@
   }
   
   .app__work-portfolio {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
     align-items: center;
   

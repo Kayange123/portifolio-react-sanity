@@ -16,7 +16,7 @@ const scaleVariants = {
   },
 };
 
-const techList = [image.react, image.redux, image.git];
+const techList = [image.react, image.mu5, image.git];
 const Header = () => {
   return (
     <div className="app__header app__flex">
@@ -29,11 +29,10 @@ const Header = () => {
           <div className="badge-cmp app__flex">
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Hello, I am</p>
+              <p className="p-text"> I am</p>
               <h1 className="head-text">Ayubu Kayange</h1>
             </div>
           </div>
-
           <div className="tag-cmp app__flex">
             <p className="p-text">Software Engineer</p>
             <p className="p-text">Full Stack developer</p>
@@ -46,13 +45,14 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img src={image.user} alt="profile_bg" />
+        {/* <img src={image.user} alt="user-logo" /> */}
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          src={image.circle}
+          src={image.programming}
           alt="profile_circle"
           className="overlay_circle"
+          loading="lazy"
         />
       </motion.div>
 
@@ -63,7 +63,7 @@ const Header = () => {
       >
         {techList.map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="profile_bg" />
+            <img loading="lazy" src={circle} alt="profile_bg" />
           </div>
         ))}
       </motion.div>

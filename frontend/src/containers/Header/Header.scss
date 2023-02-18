@@ -1,10 +1,5 @@
 #home {
     position: relative;
-    background: url("../../assets/assets/bgIMG.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-  
     // disable the default padding styles
     .app__wrapper {
       padding: 0;
@@ -21,10 +16,10 @@
     height: 100%;
     flex-direction: row;
   
-    padding: 6rem 2rem 0rem;
+    padding: 4rem 2rem 0rem;
   
     @media screen and (min-width: 2000px) {
-      padding-top: 8rem;
+      padding-top: 4rem;
     }
   
     @media screen and (max-width: 1200px) {
@@ -37,14 +32,14 @@
   }
   
   .app__header-info {
-    flex: 0.65;
+    flex: 0.55;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
   
-    margin: 0 2rem;
+    margin: 0 ;
   
     @media screen and (max-width: 1200px) {
       width: 100%;
@@ -61,11 +56,11 @@
   
     .badge-cmp,
     .tag-cmp {
-      padding: 1rem 2rem;
+      padding: 1rem 1rem;
       background: var(--white-color);
       border-radius: 15px;
       flex-direction: row;
-      width: auto;
+      width: fit-content;
   
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     }
@@ -113,8 +108,11 @@
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   
       img {
-        width: 60%;
-        height: 60%;
+        width: 70%;
+        height: 70%;
+        overflow: clip;
+        object-fit: cover;
+        object-position: center;
       }
     }
   

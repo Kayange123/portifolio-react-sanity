@@ -20,7 +20,7 @@ const Works = () => {
       if (item === "All") {
         setFilterWorks(works);
       } else {
-        setFilterWorks(works.filter((work) => work.tags.inludes(item)));
+        setFilterWorks(works.filter((work) => work.tags.includes(item)));
       }
     }, 500);
   };

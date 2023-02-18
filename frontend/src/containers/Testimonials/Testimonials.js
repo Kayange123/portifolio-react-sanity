@@ -14,7 +14,11 @@ const Testimonial = () => {
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
-
+  if (testimonials.length > 1) {
+    setTimeout(() => {
+      setCurrentIndex((prevCurrentIndex) => prevCurrentIndex + 1);
+    }, 8000);
+  }
   useEffect(() => {
     const query = '*[_type == "testimonial"]';
     const brandsQuery = '*[_type == "brand"]';
@@ -31,7 +35,7 @@ const Testimonial = () => {
 
   return (
     <>
-      {testimonials?.length && (
+      {testimonials?.length > 0 && (
         <>
           <div className="app__testimonial-item app__flex">
             <img src={urlFor(test.imageurl?.asset?._ref)} alt={test.name} />
@@ -48,33 +52,35 @@ const Testimonial = () => {
             </div>
           </div>
 
-          <div className="app__testimonial-btns app__flex">
-            <div
-              className="app__flex"
-              onClick={() =>
-                handleClick(
-                  currentIndex === 0
-                    ? testimonials.length - 1
-                    : currentIndex - 1
-                )
-              }
-            >
-              <HiChevronLeft />
-            </div>
+          {testimonials.length > 1 && (
+            <div className="app__testimonial-btns app__flex">
+              <div
+                className="app__flex"
+                onClick={() =>
+                  handleClick(
+                    currentIndex === 0
+                      ? testimonials.length - 1
+                      : currentIndex - 1
+                  )
+                }
+              >
+                <HiChevronLeft />
+              </div>
 
-            <div
-              className="app__flex"
-              onClick={() =>
-                handleClick(
-                  currentIndex === testimonials.length - 1
-                    ? 0
-                    : currentIndex + 1
-                )
-              }
-            >
-              <HiChevronRight />
+              <div
+                className="app__flex"
+                onClick={() =>
+                  handleClick(
+                    currentIndex === testimonials.length - 1
+                      ? 0
+                      : currentIndex + 1
+                  )
+                }
+              >
+                <HiChevronRight />
+              </div>
             </div>
-          </div>
+          )}
         </>
       )}
 

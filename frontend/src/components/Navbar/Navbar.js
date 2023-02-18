@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./navbar.scss";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
-import image from "../../assets/index";
 
 const navList = ["Home", "About", "Work", "Skills", "Contact"];
 const Navbar = () => {
@@ -10,26 +9,28 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img height={"200px"} width="200px" src={image.redux} alt="Home-img" />
+        <p>Ayubu Kayange</p>
       </div>
       <ul className="app__navbar-links">
         {navList.map((item) => (
-          <li className="app__flex p-text" key={`nav-${item}`}>
-            <a href={`#${item}`}>{item}</a>
+          <li className="app__flex p-text" key={`link-${item}`}>
             <div />
+            <a href={`#${item}`}>{item}</a>
           </li>
         ))}
       </ul>
+
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
+
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0, ease: "easeInOut" }}
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {navList.map((item) => (
+              {["Home", "About", "Work", "Skills", "Contact"].map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
@@ -43,5 +44,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;

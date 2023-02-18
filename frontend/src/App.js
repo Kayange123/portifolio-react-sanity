@@ -1,19 +1,26 @@
-import { Footer, Skills, Testimonials, Works, Contact } from "./containers";
+import React, { Suspense } from "react";
+import { Header } from "./containers";
 import { Toaster } from "react-hot-toast";
 import { Navbar } from "./components/index";
-import React, { Suspense } from "react";
+import {
+  About,
+  Skills,
+  Testimonials,
+  Works,
+  Contact,
+  Footer,
+} from "./components/LazyLoaded/LazyLoaded";
+import Spinner from "./components/Spinner";
 import "./app.scss";
-
-const Header = React.lazy(() => import("./containers/Header/Header"));
-const About = React.lazy(() => import("./containers/About/About"));
+export const preload = document.getElementById("preloader");
 const App = () => {
   const ready = document.readyState;
-
+  document.title = "Ayubu Kayange";
   return (
     <div className="app">
+      <Toaster position="top-left" />
       {ready ? (
-        <Suspense fallback="loading...">
-          <Toaster position="top-center" />
+        <Suspense fallback={<Spinner />}>
           <Navbar />
           <Header />
           <About />
@@ -24,7 +31,7 @@ const App = () => {
           <Footer />
         </Suspense>
       ) : (
-        "Loading..."
+        <Spinner />
       )}
     </div>
   );

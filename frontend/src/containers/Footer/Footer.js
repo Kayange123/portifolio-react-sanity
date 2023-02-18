@@ -53,5 +53,5 @@ const Footer = () => {
 export default AppWrap(
   MotionWrap(Footer, "app__footer"),
   "Footer",
-  "app__darkbg"
+  "app__primarybg"
 );

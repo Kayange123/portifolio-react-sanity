@@ -88,14 +88,20 @@
         border: none;
         border-radius: 7px;
         background-color: var(--primary-color);
-  
+        font-weight: 500;
+        filter: grayscale(2px);
+        font-size:18px;
+        line-height: 10px;
         font-family: var(--font-base);
         color: var(--secondary-color);
         outline: none;
+        caret-color: var(--secondary-color);
       }
   
       textarea {
         height: 170px;
+        outline: none;
+        resize: none;
       }
   
       &:hover {
@@ -129,6 +135,7 @@
     }
   }
   .disable-btn{
-    cursor: not-allowed;
+    cursor: not-allowed !important;
+    filter: grayscale(40px);
     background-color: grey !important;
   }
