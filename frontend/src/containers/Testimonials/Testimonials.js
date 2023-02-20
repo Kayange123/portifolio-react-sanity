@@ -34,7 +34,6 @@ const Testimonial = () => {
     });
   }, []);
   const test = testimonials[currentIndex];
-  console.log(testimonials);
   return (
     <>
       {test && testimonials?.length > 0 && (
@@ -48,20 +47,20 @@ const Testimonial = () => {
                 <RiDoubleQuotesR />
               </div>
               <div>
-                <h4 className="bold-text">{test.name}</h4>
-                <h5 className="p-text">{test.company}</h5>
+                <h4 className="bold-text">{test?.name}</h4>
+                <h5 className="p-text">{test?.company}</h5>
               </div>
             </div>
           </div>
 
-          {testimonials.length > 1 && (
+          {testimonials?.length > 1 && (
             <div className="app__testimonial-btns app__flex">
               <div
                 className="app__flex"
                 onClick={() =>
                   handleClick(
                     currentIndex === 0
-                      ? testimonials.length - 1
+                      ? testimonials?.length - 1
                       : currentIndex - 1
                   )
                 }
@@ -73,7 +72,7 @@ const Testimonial = () => {
                 className="app__flex"
                 onClick={() =>
                   handleClick(
-                    currentIndex === testimonials.length - 1
+                    currentIndex === testimonials?.length - 1
                       ? 0
                       : currentIndex + 1
                   )
