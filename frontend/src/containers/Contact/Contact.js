@@ -51,7 +51,7 @@ const Contact = () => {
         <Form notify={notify} setIsFormSent={setIsFormSent} />
       ) : (
         <div>
-          <h3 className="head-text">Thank you for getting in touch!</h3>
+          <h3 className="head-text">Thank you for your feedback</h3>
         </div>
       )}
     </>

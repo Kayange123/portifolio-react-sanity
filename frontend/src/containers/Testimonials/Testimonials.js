@@ -14,11 +14,13 @@ const Testimonial = () => {
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
-  if (testimonials.length > 1) {
-    setTimeout(() => {
-      setCurrentIndex((prevCurrentIndex) => prevCurrentIndex + 1);
-    }, 8000);
-  }
+  // if (testimonials.length > 1) {
+  //   setTimeout(() => {
+  //     setCurrentIndex((prevCurrentIndex) =>
+  //       prevCurrentIndex === testimonials.length - 1 ? 0 : prevCurrentIndex + 1
+  //     );
+  //   }, 8000);
+  // }
   useEffect(() => {
     const query = '*[_type == "testimonial"]';
     const brandsQuery = '*[_type == "brand"]';
@@ -32,17 +34,17 @@ const Testimonial = () => {
     });
   }, []);
   const test = testimonials[currentIndex];
-
+  console.log(testimonials);
   return (
     <>
-      {testimonials?.length > 0 && (
+      {test && testimonials?.length > 0 && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img src={urlFor(test.imageurl?.asset?._ref)} alt={test.name} />
+            <img src={urlFor(test?.imageurl?.asset?._ref)} alt={test.name} />
             <div className="app__testimonial-content">
               <div className="feedback">
                 <RiDoubleQuotesL />
-                <blockquote className="p-text">{test.feedback}</blockquote>
+                <blockquote className="p-text">{test?.feedback}</blockquote>
                 <RiDoubleQuotesR />
               </div>
               <div>
