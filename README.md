@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/68dee68b-6c58-433c-b971-8b4e909d7ac0/deploy-status)](https://app.netlify.com/sites/ayubukayange/deploys)
+
+
 # React - Sanity portifolio
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
