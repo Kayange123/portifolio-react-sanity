@@ -14,13 +14,11 @@ const Testimonial = () => {
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
-  // if (testimonials.length > 1) {
-  //   setTimeout(() => {
-  //     setCurrentIndex((prevCurrentIndex) =>
-  //       prevCurrentIndex === testimonials.length - 1 ? 0 : prevCurrentIndex + 1
-  //     );
-  //   }, 8000);
-  // }
+  if (testimonials.length > 1 && currentIndex < testimonials.length) {
+    setTimeout(() => {
+      setCurrentIndex((prevCurrentIndex) => prevCurrentIndex + 1);
+    }, 8000);
+  }
   useEffect(() => {
     const query = '*[_type == "testimonial"]';
     const brandsQuery = '*[_type == "brand"]';
