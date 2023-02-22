@@ -9,10 +9,10 @@
   .app__work-filter {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin:  1rem 2rem;
+    margin:  0 2rem;
     
   
     @media screen and (max-width: 1200px) {
@@ -59,6 +59,7 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
     align-items: center;
   
