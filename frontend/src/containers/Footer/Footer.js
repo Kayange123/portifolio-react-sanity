@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AppWrap, MotionWrap } from "../../components/AppWrapper";
 import { client, urlFor } from "../../sanityClient/client";
 import Drawer from "./Drawer";
-import { motion } from "framer-motion";
 import "./index.scss";
 
 const Footer = () => {
