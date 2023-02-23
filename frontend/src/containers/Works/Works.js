@@ -52,10 +52,13 @@ const Works = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
+        className="app__work-portfolio container-card"
       >
         {filterWorks.map((work, index) => (
-          <div className="app__work-item app__flex" key={index + work}>
+          <div
+            className="app__work-item app__flex inner-div"
+            key={index + work}
+          >
             <div className="app__work-img app__flex">
               <img src={urlFor(work.imageURL.asset._ref)} alt={work.name} />
               <motion.div
@@ -65,7 +68,7 @@ const Works = () => {
                   ease: "easeInOut",
                   staggerChildren: 0.5,
                 }}
-                className="app__work-hover app__flex"
+                className="app__work-hover app__flex "
               >
                 <a href={work.projectLink} target="_blank" rel="noreferrer">
                   <motion.div

@@ -18,17 +18,11 @@ const Footer = () => {
   return (
     <>
       <section className="app__footer app__flex">
-        <div className="img-grid">
+        <div className="img-grid container-card">
           {certs.length > 0 &&
             certs.map((cert, index) => (
-              <motion.div
-                whileInView={{ scale: [0, 1], opacity: [0, 1] }}
-                transition={{
-                  duration: 0.7,
-                  type: "tween",
-                  staggerChildren: 1,
-                }}
-                className="img-wrap"
+              <div
+                className="img-wrap inner-div"
                 key={cert + index}
                 onClick={() =>
                   setSelectedCard(urlFor(cert.certImage.asset._ref))
@@ -39,7 +33,7 @@ const Footer = () => {
                   alt={cert.course}
                   loading="lazy"
                 />
-              </motion.div>
+              </div>
             ))}
         </div>
       </section>
