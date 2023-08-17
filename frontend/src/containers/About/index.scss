@@ -8,10 +8,11 @@
   
   .app__profiles {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+    gap: 6px;
   }
   
   .app__profile-item {
