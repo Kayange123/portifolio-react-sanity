@@ -28,7 +28,7 @@ const Header = () => {
                   .deleteChars(19)
                   .typeString("UI/UX Designer")
                   .pauseFor(1000)
-                  .deleteChars(19)
+                  .deleteChars(14)
                   .typeString("Data Analyst")
                   .pauseFor(1000)
                   .deleteChars(12)
