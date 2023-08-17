@@ -1,20 +1,20 @@
 .app__footer {
-    flex: 1;
+  flex: 1;
     width: 100%;
+    display: flex;
     flex-direction: column;
-  
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
+    align-items: center;
+    // @media screen and (max-width: 768px) {
+    //   flex-direction: column;
+    // }
   }
   
   .app__footer-cards {
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin: 4em 2rem 2rem;
   
     .app__footer-card {
       min-width: 290px;
@@ -49,12 +49,13 @@
       }
   
       @media screen and (max-width: 450px) {
-        width: 100%;
+        width: 40%;
       }
     }
   
     @media screen and (max-width: 768px) {
-      width: 100%;
+      flex-direction: row;
+      width: 40%;
     }
   }
   
@@ -67,7 +68,7 @@
   }
   
   .app__footer-form {
-    width: 60%;
+    width: 100%;
     flex-direction: column;
     margin: 1rem 2rem;
   
@@ -138,4 +139,8 @@
     cursor: not-allowed !important;
     filter: grayscale(40px);
     background-color: grey !important;
+  }
+
+  .form{
+    width: 80%;
   }

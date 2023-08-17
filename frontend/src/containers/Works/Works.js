@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { client, urlFor } from "../../sanityClient/client";
-import { AppWrap, MotionWrap } from "../../components/AppWrapper";
+import { AppWrap } from "../../components/AppWrapper";
 import "./index.scss";
 
 const listWorks = ["All", "UI/UX", "Web App", "Mobile App"];
@@ -22,7 +22,7 @@ const Works = () => {
       } else {
         setFilterWorks(works.filter((work) => work.tags.includes(item)));
       }
-    }, 500);
+    }, 1000);
   };
   useEffect(() => {
     const query = '*[_type=="work"]';
@@ -33,9 +33,9 @@ const Works = () => {
   }, []);
   return (
     <div className="app__work">
-      <h2 className="head-text">
+      <h3 className="head-text">
         My <span> projects</span>
-      </h2>
+      </h3>
       <div className="app__work-filter">
         {listWorks.map((work, index) => (
           <div
@@ -108,4 +108,4 @@ const Works = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Works, "app__work"), "Work", "app__whitebg");
+export default AppWrap(Works, "Work", "app__work app__whitebg");

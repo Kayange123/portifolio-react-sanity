@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import values from "../../constants/emailJs";
+import isValidEmail from "../../utils/checkEmail";
+import { getFireWorks } from "../../utils/confetti";
 import "./index.scss";
+import { toast } from "react-hot-toast";
 
 const data = { user_name: "", user_email: "", message: "" };
 const Form = ({ notify, setIsFormSent }) => {
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState(data);
+  const [error, setError] = useState("");
   const { user_name, user_email, message } = formData;
   const form = useRef();
   const isInValid = user_email === "" || user_name === "" || message === "";
@@ -19,25 +23,32 @@ const Form = ({ notify, setIsFormSent }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSending(true);
-
+    if (!isValidEmail(user_email)) {
+      setError("Please enter a valid email");
+      setIsSending(false);
+      return;
+    }
     emailjs
       .send(values.serviceID, values.templateID, formData, values.publicKey)
       .then(
         () => {
           clear();
-          notify("Email was sent successfully");
+          getFireWorks();
+          toast.success("Email was sent successfully");
         },
         () => {
-          notify("Email was not Sent, Something went wrong!");
+          toast.error("Email was not Sent, Something went wrong!");
         }
       )
-      .catch((err) => console.log(err))
+      .catch((err) => toast.error(err.message))
       .finally(() => {
         setIsSending(false);
+        setError("");
       });
   };
   return (
     <div ref={form} className="app__footer-form app__flex">
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <div className="app__flex">
         <input
           className="p-text"

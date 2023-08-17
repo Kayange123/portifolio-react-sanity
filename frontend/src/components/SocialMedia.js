@@ -7,7 +7,7 @@ const SocialMedia = () => {
     <div className="app__social">
       <div>
         <a
-          href="https://www.linkedin.com/in/ayubu-kayange-864122233/"
+          href="https://www.linkedin.com/in/kayange"
           target="_blank"
           rel="noreferrer"
         >
@@ -25,7 +25,7 @@ const SocialMedia = () => {
       </div>
       <div>
         <a
-          href="https://www.linkedin.com/in/ayubu-kayange-864122233/"
+          href="https://www.linkedin.com/in/kayange"
           target="_blank"
           rel="noreferrer"
         >
@@ -34,7 +34,7 @@ const SocialMedia = () => {
       </div>
       <div>
         <a
-          href="https://github.com/Kayange123"
+          href="https://instagram.com/ayubukayange_"
           target="_blank"
           rel="noreferrer"
         >

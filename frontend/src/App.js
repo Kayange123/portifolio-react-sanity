@@ -18,7 +18,7 @@ const App = () => {
   document.title = "Ayubu Kayange";
   return (
     <div className="app">
-      <Toaster position="top-left" />
+      <Toaster position="top-center" />
       {ready ? (
         <Suspense fallback={<Spinner />}>
           <Navbar />
