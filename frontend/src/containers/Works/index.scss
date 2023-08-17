@@ -3,7 +3,8 @@
    display: flex;
     max-width: 100%;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   
   .app__work-filter {
@@ -13,6 +14,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin:  0 2rem;
+    font-size: 30px;
     
   
     @media screen and (max-width: 1200px) {
@@ -44,6 +46,7 @@
         padding: 1rem 1rem;
         border-radius: 0.85rem;
         font-size: 10px;
+        width: -moz-fit-content;
         width: fit-content;
         height: 20px;
       }
@@ -56,21 +59,20 @@
   }
   
   .app__work-portfolio {
-    flex: 1;
+    flex: .6;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   
     .app__work-item {
-      width: 270px;
+      width: 300px;
       flex-direction: column;
-  
       margin: 2rem;
       padding: 1rem;
       border-radius: 0.5rem;
-      background-color: #fff;
+      background-color: #e4dada;
       color: #000;
   
       cursor: pointer;
@@ -86,9 +88,10 @@
         border-radius: 0.75rem;
       }
   
-      @media screen and (max-width: 300px) {
+      @media screen and (max-width: 500px) {
         width: 100%;
-        margin: 1rem;
+        margin: .6rem 0;
+        height: 500px;
       }
     }
   }

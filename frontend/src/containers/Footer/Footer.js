@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AppWrap, MotionWrap } from "../../components/AppWrapper";
+import { AppWrap } from "../../components/AppWrapper";
 import { client, urlFor } from "../../sanityClient/client";
 import Drawer from "./Drawer";
 import "./index.scss";
@@ -43,8 +43,4 @@ const Footer = () => {
   );
 };
 
-export default AppWrap(
-  MotionWrap(Footer, "app__footer"),
-  "Footer",
-  "app__primarybg"
-);
+export default AppWrap(Footer, "Footer", "app__footer app__primarybg");

@@ -1,74 +1,69 @@
-import { motion } from "framer-motion";
-import AppWrapp from "../../components/AppWrapper/AppWrap.js";
-import image from "../../assets/index";
 import React from "react";
-import MotionWrap from "../../components/AppWrapper/MotionWrap.js";
+import Typewriter from "typewriter-effect";
+import AppWrapp from "../../components/AppWrapper/AppWrap.js";
+import { socialMedia } from "../../constants/accountLink.js";
 import "./Header.scss";
 
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const techList = [image.react, image.mu5, image.git];
 const Header = () => {
   return (
-    <div className="app__header app__flex">
-      <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.5 }}
-        className="app__header-info"
-      >
-        <div className="app__header-badge">
-          <div className="badge-cmp app__flex">
-            <span>👋</span>
-            <div style={{ marginLeft: 20 }}>
-              <p className="p-text"> I am</p>
-              <h1 className="head-text">Ayubu Kayange</h1>
-            </div>
-          </div>
-          <div className="tag-cmp app__flex">
-            <p className="p-text">Software Engineer</p>
-            <p className="p-text">Full Stack developer</p>
+    <div className="app__header">
+      <div className="app__header-container">
+        <div className="intro-box">
+          <h2 style={{ fontSize: "2.5rem" }} className="">
+            Hello there!
+          </h2>
+          <div className="typed-text">
+            <Typewriter
+              options={{ loop: true }}
+              onInit={(typewriter) => {
+                typewriter
+                  .pauseFor(500)
+                  .typeString("I am ")
+                  .pauseFor(500)
+                  .typeString("Software Developer")
+                  .pauseFor(1500)
+                  .deleteChars(18)
+                  .typeString("Front-End Developer")
+                  .pauseFor(1000)
+                  .deleteChars(19)
+                  .typeString("UI/UX Designer")
+                  .pauseFor(1000)
+                  .deleteChars(19)
+                  .typeString("Data Analyst")
+                  .pauseFor(1000)
+                  .deleteChars(12)
+                  .start();
+              }}
+            />
           </div>
         </div>
-      </motion.div>
-
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__header-img"
-      >
-        {/* <img src={image.user} alt="user-logo" /> */}
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          src={image.programming}
-          alt="profile_circle"
-          className="overlay_circle"
-          loading="lazy"
-        />
-      </motion.div>
-
-      <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className="app__header-circles"
-      >
-        {techList.map((circle, index) => (
-          <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img loading="lazy" src={circle} alt="profile_bg" />
+        <div className="summary">
+          <div>
+            <h3 className="summary-title">Summary</h3>
+            <p className="summary-text">
+              Experienced Front-End Developer with expertise in Java, Dart,
+              TypeScript and JavaScript. Proefficient in creating Single Page
+              Applications ( SPA ), Progressive Web Applications ( WPA ) and
+              Server-Side Rendered (SSR) solutions through different frameworks
+              like React, NextJs, Flutter and Handlebar's ExpressJs. Skilled in
+              harnessing the power of cloud technologies including AWS, Google
+              Cloud and Firebase, to build robust and scalable web and mobile
+              applications that deliver exceptional user experience.
+            </p>
+            <div className="home-links">
+              {socialMedia.map((medium, i) => (
+                <div key={i}>
+                  <a href={medium.url} target="_blank" rel="noreferrer">
+                    {medium.name}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default AppWrapp(MotionWrap(Header, "app__header"), "Home");
+export default AppWrapp(Header, "Home", "app__header");

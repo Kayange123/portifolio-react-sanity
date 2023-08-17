@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
-import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
+import { AppWrap } from "../../components/AppWrapper/index";
 import { urlFor, client } from "../../sanityClient/client";
 import "./index.scss";
 
@@ -95,7 +95,7 @@ const Testimonial = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Testimonial, "app__testimonial"),
+  Testimonial,
   "Testimonial",
-  "app__primarybg"
+  "app__testimonial app__primarybg"
 );

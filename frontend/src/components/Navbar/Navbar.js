@@ -15,7 +15,9 @@ const Navbar = () => {
         {navList.map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
-            <a href={`#${item}`}>{item}</a>
+            <a style={{ color: "black" }} href={`#${item}`}>
+              {item}
+            </a>
           </li>
         ))}
       </ul>
@@ -26,9 +28,10 @@ const Navbar = () => {
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <HiX onClick={() => setToggle(false)} />
+
             <ul>
               {["Home", "About", "Work", "Skills", "Contact"].map((item) => (
                 <li key={item}>

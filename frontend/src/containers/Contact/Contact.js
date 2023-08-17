@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { images } from "../../constants";
 import { client } from "../../sanityClient/client";
-import { AppWrap, MotionWrap } from "../../components/AppWrapper/index";
+import { AppWrap } from "../../components/AppWrapper/index";
 import Form from "./Form";
 import "./index.scss";
 
@@ -26,9 +26,10 @@ const Contact = () => {
   }, []);
 
   return (
-    <>
-      <h2 className="head-text">Reach Me Out Now</h2>
-
+    <div className="app__footer">
+      <h2 className="head-text">
+        Reach <span>Me</span> Out Now
+      </h2>
       {contact?.length > 0 && (
         <div className="app__footer-cards">
           {contact[0]?.name !== "" && (
@@ -48,18 +49,16 @@ const Contact = () => {
         </div>
       )}
       {!isFormSent ? (
-        <Form notify={notify} setIsFormSent={setIsFormSent} />
+        <div className="form">
+          <Form notify={notify} setIsFormSent={setIsFormSent} />
+        </div>
       ) : (
         <div>
           <h3 className="head-text">Thank you for your feedback</h3>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
-export default AppWrap(
-  MotionWrap(Contact, "app__footer"),
-  "Contact",
-  "app__whitebg"
-);
+export default AppWrap(Contact, "Contact", "app__footer app__whitebg");
